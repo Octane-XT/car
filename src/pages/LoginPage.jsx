@@ -28,7 +28,7 @@ const LoginPage = ({ onLogin }) => {
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your username"
+                placeholder="admin"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -38,7 +38,7 @@ const LoginPage = ({ onLogin }) => {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter your password"
+                placeholder="admin"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
