@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const LoginPage = ({ onLogin }) => {

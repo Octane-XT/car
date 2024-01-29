@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DataService from '../../../services/CategorieService';
 const CategorieForm = (props) => {
-  const [idcategorie, setIdcategorie] = useState(props.rowdata ? props.rowdata.idcategorie || '' : '');
+  const [idcategorie] = useState(props.rowdata ? props.rowdata.idcategorie || '' : '');
   const [nomcategorie, setNomcategorie] = useState(props.rowdata ? props.rowdata.nomcategorie || '' : '');
 
   const handleInputChange = (e) => {

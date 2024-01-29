@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import MarqueService from '../../../services/MarqueService';
+import React, { useState } from 'react';
+/*import MarqueService from '../../../services/MarqueService';
 import CategorieService from '../../../services/CategorieService';
 import CarburantService from '../../../services/CarburantService';
 import VitesseService from '../../../services/VitesseService';
-import ClimatisationService from '../../../services/ClimatisationService';
+import ClimatisationService from '../../../services/ClimatisationService';*/
 import DataService from '../../../services/ModeleService';
 
 const ModeleForm = (props) => {
@@ -13,16 +13,16 @@ const ModeleForm = (props) => {
   console.log('Carburants:', JSON.stringify(carburants));
   console.log('Vitesse:', JSON.stringify(vitesse));
   console.log('Climatisations:', JSON.stringify(climatisation));
-  const [idmodel, setIdmodel] = useState(props.rowdata ? props.rowdata.idmodel || '' : '');
-  const [nommodel, setNommodel] = useState(props.rowdata ? props.rowdata.nommodel || '' : '');
-  const [idmarque, setIdmarque] = useState(props.rowdata ? props.rowdata.idmarque || '' : '');
-  const [idcategorie, setIdcategorie] = useState(props.rowdata ? props.rowdata.idcategorie || '' : '');
-  const [idcarburant, setIdcarburant] = useState(props.rowdata ? props.rowdata.idcarburant || '' : '');
-  const [idvitesse, setIdvitesse] = useState(props.rowdata ? props.rowdata.idvitesse || '' : '');
-  const [idclimatisation, setIdclimatisation] = useState(props.rowdata ? props.rowdata.idclimatisation || '' : '');
+  const [idmodel] = useState(props.rowdata ? props.rowdata.idmodel || '' : '');
+  const [nommodel] = useState(props.rowdata ? props.rowdata.nommodel || '' : '');
+  const [idmarque] = useState(props.rowdata ? props.rowdata.idmarque || '' : '');
+  const [idcategorie] = useState(props.rowdata ? props.rowdata.idcategorie || '' : '');
+  const [idcarburant] = useState(props.rowdata ? props.rowdata.idcarburant || '' : '');
+  const [idvitesse] = useState(props.rowdata ? props.rowdata.idvitesse || '' : '');
+  const [idclimatisation] = useState(props.rowdata ? props.rowdata.idclimatisation || '' : '');
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+   
   };
 
   const handleCreateData = async (newData) => {

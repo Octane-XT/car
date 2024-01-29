@@ -6,12 +6,6 @@ const CarSalesChart = ({ data }) => {
   const chartRef = useRef();
   const chartInstance = useRef(null);
 
-  // Mapping API data to Chart.js format
-  const chartData = {
-    labels: data.map(monthData => monthData.mois),
-    sales: data.map(monthData => monthData.nombre),
-  };
-
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
 
@@ -19,6 +13,12 @@ const CarSalesChart = ({ data }) => {
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
+
+    // Mapping API data to Chart.js format
+    const chartData = {
+      labels: data.map(monthData => monthData.mois),
+      sales: data.map(monthData => monthData.nombre),
+    };
 
     // Create a new Chart instance
     chartInstance.current = new Chart(ctx, {
@@ -39,7 +39,7 @@ const CarSalesChart = ({ data }) => {
         scales: {
           x: {
             type: 'category',
-            labels: data.labels,
+            labels: data.map(monthData => monthData.mois),
           },
           y: {
             beginAtZero: true,
@@ -54,7 +54,7 @@ const CarSalesChart = ({ data }) => {
         chartInstance.current.destroy();
       }
     };
-  }, [data]);
+  }, [data]); // Include 'data' in the dependency array
 
   return <canvas ref={chartRef} />;
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DataService from '../../../services/JanteService';
 
 const JanteForm = (props) => {
-  const [idjante, setIdjante] = useState(props.rowdata ? props.rowdata.idjante || '' : '');
+  const [idjante] = useState(props.rowdata ? props.rowdata.idjante || '' : '');
   const [nomjante, setNomjante] = useState(props.rowdata ? props.rowdata.nomjante || '' : '');
 
   const handleInputChange = (e) => {

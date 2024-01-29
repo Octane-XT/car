@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DataService from '../../../services/ClimatisationService';
 
 const ClimatisationForm = (props) => {
-  const [idclimatisation, setIdclimatisation] = useState(props.rowdata ? props.rowdata.idclimatisation || '' : '');
+  const [idclimatisation] = useState(props.rowdata ? props.rowdata.idclimatisation || '' : '');
   const [nomclimatisation, setNomclimatisation] = useState(props.rowdata ? props.rowdata.nomclimatisation || '' : '');
 
   const handleInputChange = (e) => {

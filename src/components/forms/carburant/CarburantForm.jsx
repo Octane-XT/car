@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DataService from '../../../services/CarburantService';
 
 const CarburantForm = (props) => {
-  const [idcarburant, setIdcarburant] = useState(props.rowdata ? props.rowdata.idcarburant || '' : '');
+  const [idcarburant] = useState(props.rowdata ? props.rowdata.idcarburant || '' : '');
   const [nomcarburant, setNomcarburant] = useState(props.rowdata ? props.rowdata.nomcarburant || '' : '');
 
   const handleInputChange = (e) => {

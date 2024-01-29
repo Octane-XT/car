@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DataService from '../../../services/VitesseService';
 
 const VitesseForm = (props) => {
-  const [idvitesse, setIdvitesse] = useState(props.rowdata ? props.rowdata.idvitesse || '' : '');
+  const [idvitesse] = useState(props.rowdata ? props.rowdata.idvitesse || '' : '');
   const [nomvitesse, setNomvitesse] = useState(props.rowdata ? props.rowdata.nomvitesse || '' : '');
 
   const handleInputChange = (e) => {

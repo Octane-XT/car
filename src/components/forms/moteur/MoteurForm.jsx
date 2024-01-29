@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DataService from '../../../services/MoteurService';
 const MoteurForm = (props) => {
-  const [idmoteur, setIdmoteur] = useState(props.rowdata ? props.rowdata.idmoteur || '' : '');
+  const [idmoteur] = useState(props.rowdata ? props.rowdata.idmoteur || '' : '');
   const [nom, setNom] = useState(props.rowdata ? props.rowdata.nom || '' : '');
   const [capacite, setCapacite] = useState(props.rowdata ? props.rowdata.capacite || '' : '');
 

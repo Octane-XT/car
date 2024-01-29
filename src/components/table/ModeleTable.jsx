@@ -1,18 +1,18 @@
 // CarburantTable.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ModeleForm from '../forms/modele/ModeleForm';
-import MarqueService from '../../services/MarqueService';
+/*import MarqueService from '../../services/MarqueService';
 import CategorieService from '../../services/CategorieService';
 import CarburantService from '../../services/CarburantService';
 import VitesseService from '../../services/VitesseService';
-import ClimatisationService from '../../services/ClimatisationService';
+import ClimatisationService from '../../services/ClimatisationService';*/
 
 
 const ModeleTable = ({ data, onDelete }) => {
   const [showModal, setShowModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [selectedRowData, setSelectedRowData] = useState(null);
+  const [selectedRowData] = useState(null);
   const [filter, setFilter] = useState('');
 
   /*const [marque, setMarque] = useState([]);
@@ -54,7 +54,7 @@ const ModeleTable = ({ data, onDelete }) => {
     fetchClimatisations();
   }, []);*/
 
-  const handleAdd = () => {
+  /*const handleAdd = () => {
     setSelectedRowData(null);
     setShowModal(true);
   };
@@ -67,7 +67,7 @@ const ModeleTable = ({ data, onDelete }) => {
   const handleDelete = (index) => {
     setSelectedRowData(index);
     setShowConfirmModal(true);
-  };
+  };*/
 
   const handleDeleteConfirmed = () => {
     // Implement your delete logic here

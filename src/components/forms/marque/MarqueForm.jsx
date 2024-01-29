@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DataService from '../../../services/MarqueService';
 
 const MarqueForm = (props) => {
-  const [idmarque, setIdmarque] = useState(props.rowdata ? props.rowdata.idmarque || '' : '');
+  const [idmarque] = useState(props.rowdata ? props.rowdata.idmarque || '' : '');
   const [nommarque, setNommarque] = useState(props.rowdata ? props.rowdata.nommarque || '' : '');
 
   const handleInputChange = (e) => {

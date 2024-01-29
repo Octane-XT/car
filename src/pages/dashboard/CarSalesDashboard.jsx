@@ -4,6 +4,8 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import DataService from '../../services/StatistiqueService'; 
 
+// ... (previous imports)
+
 const CarSalesDashboard = () => {
   const [selectedYear, setSelectedYear] = useState('2022');
   const years = ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
@@ -13,35 +15,21 @@ const CarSalesDashboard = () => {
   };
 
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    fetchData();
-  }, []); // Fetch data on component mount
+    const fetchData = async () => {
+      try {
+        const fetchedData = await DataService.getvendu(selectedYear);
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
+        // Handle error if necessary
+      }
+    };
 
-  const fetchData = async () => {
-    try {
-      const fetchedData = await DataService.getvendu(selectedYear);
-      setData(fetchedData);
-    } catch (error) {
-      console.error('Failed to fetch data:', error);
-      // Handle error if necessary
-    }
-  };
+    fetchData();  // Call fetchData inside the useEffect callback
 
-  // Example data for each year
-  const salesData = {
-    '2021': {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      sales: [15, 20, 30, 25, 18, 35, 40, 38, 28, 22, 15, 10],
-    },
-    '2022': {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      sales: [12, 18, 25, 28, 22, 38, 45, 40, 30, 28, 20, 15],
-    },
-    '2023': {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      sales: [18, 25, 35, 40, 30, 50, 55, 50, 40, 35, 28, 20],
-    },
-  };
+  }, [selectedYear]); // Include 'selectedYear' in the dependency array
 
   return (
     <div className="main-wrapper">
@@ -76,3 +64,4 @@ const CarSalesDashboard = () => {
 };
 
 export default CarSalesDashboard;
+

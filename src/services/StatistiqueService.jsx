@@ -1,5 +1,4 @@
 
-const API_URL = 'https://tempapi.proj.me/api/frvlDgcnU';
 
 const StatistiqueService = {
     getvendu: async (annee) => {
