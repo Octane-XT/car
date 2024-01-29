@@ -2,10 +2,12 @@
 const CategorieService = {
     getData: async () => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/categoriecontroller/categories', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/categoriecontroller/categories', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -22,11 +24,12 @@ const CategorieService = {
 
     postData: async (newData) => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/categoriecontroller/add', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/categoriecontroller/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(newData),
             });
@@ -45,11 +48,12 @@ const CategorieService = {
 
     updateData: async (updatedData) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/categoriecontroller/update`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/categoriecontroller/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(updatedData),
             });
@@ -68,11 +72,12 @@ const CategorieService = {
 
     deleteData: async (id) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/categoriecontroller/delete/${id}`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/categoriecontroller/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
             });
 

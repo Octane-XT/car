@@ -14,13 +14,14 @@ import CarSalesDashboard from './pages/dashboard/CarSalesDashboard';
 import Annonce from './pages/annonce/Annonce';
 
 const App = () => {
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = () => {
     // Implement your login logic here
     // Set isLoggedIn to true if login is successful
     console.log("tafiditra");
     setLoggedIn(true);
+    <Navigate to="/"/>
   };
 
   const handleLogout = () => {
@@ -29,58 +30,58 @@ const App = () => {
     setLoggedIn(false);
   };
 
+  const PrivateRoute = ({element}) => {
+    return isLoggedIn ? element : <Navigate to="/login"/>
+  };
+
   return (
     
       <Routes>
         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         <Route
-          path="/Home"
-          element={isLoggedIn ? <HomePage onLogout={handleLogout} /> : <Navigate to="/login" />}
-        />
+          path="/"
+          element={<PrivateRoute element={<CarSalesDashboard onLogout={handleLogout} />}
+        />}/>
         <Route
           path="/dashboard"
-          element={isLoggedIn ? <CarSalesDashboard onLogout={handleLogout} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/"
-          element={isLoggedIn ? <CarSalesDashboard onLogout={handleLogout} /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<CarSalesDashboard onLogout={handleLogout} />}
+        />}/>
         <Route
           path="/carburant"
-          element={isLoggedIn ? <Carburant /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Carburant onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/categorie"
-          element={isLoggedIn ? <Categorie /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Categorie onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/climatisation"
-          element={isLoggedIn ? <Climatisation /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Climatisation onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/jante"
-          element={isLoggedIn ? <Jante /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Jante onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/marque"
-          element={isLoggedIn ? <Marque /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Marque onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/moteur"
-          element={isLoggedIn ? <Moteur /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Moteur onLogout={handleLogout}/>}
+        />}/>
         <Route
-          path="/vitesse"
-          element={isLoggedIn ? <Vitesse /> : <Navigate to="/login" />}
-        />
+          path="/Vitesse"
+          element={<PrivateRoute element={<Vitesse onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/modele"
-          element={isLoggedIn ? <Modele /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Modele onLogout={handleLogout}/>}
+        />}/>
         <Route
           path="/annonce"
-          element={isLoggedIn ? <Annonce /> : <Navigate to="/login" />}
-        />
+          element={<PrivateRoute element={<Annonce onLogout={handleLogout}/>}
+        />}/>
       </Routes>
     
   );

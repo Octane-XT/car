@@ -2,10 +2,12 @@
 const ModeleService = {
     getData: async () => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/modelcontroller/models', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/modelcontroller/models', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -22,11 +24,12 @@ const ModeleService = {
 
     postData: async (newData) => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/modelcontroller/add', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/modelcontroller/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(newData),
             });
@@ -45,11 +48,12 @@ const ModeleService = {
 
     updateData: async (updatedData) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/modelcontroller/update`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/modelcontroller/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(updatedData),
             });
@@ -68,11 +72,12 @@ const ModeleService = {
 
     deleteData: async (id) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/modelcontroller/delete/${id}`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/modelcontroller/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
             });
 

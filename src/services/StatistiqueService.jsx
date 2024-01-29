@@ -3,10 +3,12 @@
 const StatistiqueService = {
     getvendu: async (annee) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/statistiquecontroller/vendu?annee=${annee}`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/statistiquecontroller/vendu?annee=${annee}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -23,10 +25,12 @@ const StatistiqueService = {
 
     getcommission: async (annee) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/statistiquecontroller/commission?annee=${annee}`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/statistiquecontroller/commission?annee=${annee}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -43,11 +47,12 @@ const StatistiqueService = {
 
     postData: async (newData) => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/statistiquecontroller/add', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/statistiquecontroller/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(newData),
             });
@@ -66,11 +71,12 @@ const StatistiqueService = {
 
     updateData: async (updatedData) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/statistiquecontroller/update`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/statistiquecontroller/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(updatedData),
             });
@@ -89,11 +95,12 @@ const StatistiqueService = {
 
     deleteData: async (id) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/statistiquecontroller/delete/${id}`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/statistiquecontroller/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
             });
 

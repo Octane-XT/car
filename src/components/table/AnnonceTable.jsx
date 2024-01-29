@@ -57,14 +57,14 @@ const AnnonceTable = ({ annonces, onValider, onRefuser }) => {
                             <td>
                                 <button
                                     className="btn btn-success mr-2"
-                                    onClick={() => openModal(annonce._id.timestamp, 'valider')}
+                                    onClick={() => openModal(annonce._id, 'valider')}
                                 >
                                     Valider
                                 </button>
                                 <button
                                     style={{ marginLeft: "15px" }}
                                     className="btn btn-danger"
-                                    onClick={() => openModal(annonce._id.timestamp, 'refuser')}
+                                    onClick={() => openModal(annonce._id, 'refuser')}
                                 >
                                     Refuser
                                 </button>

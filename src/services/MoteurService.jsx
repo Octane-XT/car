@@ -2,10 +2,12 @@
 const MoteurService = {
     getData: async () => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/moteurcontroller/moteurs', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/moteurcontroller/moteurs', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -22,11 +24,12 @@ const MoteurService = {
 
     postData: async (newData) => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/moteurcontroller/add', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/moteurcontroller/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(newData),
             });
@@ -45,11 +48,12 @@ const MoteurService = {
 
     updateData: async (updatedData) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/moteurcontroller/update`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/moteurcontroller/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(updatedData),
             });
@@ -68,11 +72,12 @@ const MoteurService = {
 
     deleteData: async (id) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/moteurcontroller/delete/${id}`, {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/moteurcontroller/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`
                 },
             });
 

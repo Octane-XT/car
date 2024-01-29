@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import LoginService from '../services/Loginservice';
 
 const LoginPage = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  
 
   const handleLogin = () => {
     // Placeholder for actual login logic
     // You should replace this with your authentication mechanism
     console.log("tafiditra1");
-    if (username === 'admin' && password === 'admin') {
+    LoginService.check(email,password);
+    if (localStorage.getItem('token')) {
         console.log("tafiditra2");
-      onLogin();
+        onLogin();
     } else {
       setError('Invalid username or password');
     }
@@ -25,12 +29,12 @@ const LoginPage = ({ onLogin }) => {
           <h2 className="text-center">Login</h2>
           <Form>
             <Form.Group controlId="formUsername">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
-                type="text"
+                type="email"
                 placeholder="admin"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 

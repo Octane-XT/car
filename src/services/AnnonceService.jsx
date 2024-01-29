@@ -2,7 +2,7 @@
 const AnnonceService = {
     getData: async () => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/annoncecontroller/annonces', {
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/annoncecontroller/annonces', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ const AnnonceService = {
 
     postData: async (newData) => {
         try {
-            const response = await fetch('https://carselling-production.up.railway.app/api/annoncecontroller/add', {
+            const response = await fetch('https://carselling-production-25cb.up.railway.app/api/annoncecontroller/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const AnnonceService = {
 
     updateData: async (updatedData) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/annoncecontroller/update`, {
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/annoncecontroller/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const AnnonceService = {
 
     validateData: async (id) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/annoncecontroller/updateEtat?id=${id}&etat=1`, {
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/annoncecontroller/updateEtat/id=${id}/etat=1`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const AnnonceService = {
 
     deleteData: async (id) => {
         try {
-            const response = await fetch(`https://carselling-production.up.railway.app/api/annoncecontroller/${id}`, {
+            const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/annoncecontroller/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
