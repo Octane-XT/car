@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import LoginService from '../services/Loginservice';
 
 const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  const navigate = useNavigate();
   
 
   const handleLogin = () => {
-    // Placeholder for actual login logic
-    // You should replace this with your authentication mechanism
     console.log("tafiditra1");
-    LoginService.check(email,password);
-    if (localStorage.getItem('token')) {
-        console.log("tafiditra2");
-        onLogin();
-    } else {
-      setError('Invalid username or password');
-    }
+
+    // Assuming LoginService.check returns a promise
+    LoginService.check(email, password)
+      .then(() => {
+        // Simulate a delay of 1 second (adjust as needed)
+        setTimeout(() => {
+          if (localStorage.getItem('token') !== null) {
+            console.log("tafiditra2");
+            navigate('/');
+          } else {
+            setError('Invalid username or password');
+          }
+        }, 2000); // 1000 milliseconds = 1 second
+      })
+      .catch(error => {
+        console.error("Login failed:", error);
+        setError('Login failed. Please try again.');
+      });
   };
+
 
   return (
     <Container>
