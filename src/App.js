@@ -14,7 +14,7 @@ import CarSalesDashboard from './pages/dashboard/CarSalesDashboard';
 import Annonce from './pages/annonce/Annonce';
 
 const App = () => {
-  const [isLoggedIn, setLoggedIn] = useState();
+  const [isLoggedIn, setLoggedIn] = useState(true);
 
   const handleLogin = () => {
     // Implement your login logic here
