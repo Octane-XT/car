@@ -57,7 +57,7 @@ const LoginPage = ({ onLogin }) => {
                   <Form.Control
                     type="email"
                     placeholder="example@example.com"
-                    value={email}
+                    value="user1@gmail.com"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </Form.Group>
@@ -69,7 +69,7 @@ const LoginPage = ({ onLogin }) => {
                   <Form.Control
                     type="password"
                     placeholder="Password"
-                    value={password}
+                    value="Mdpprom15"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </Form.Group>
