@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import LoginService from '../services/Loginservice';
 
 const LoginPage = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('user1@gmail.com');
+  const [password, setPassword] = useState('Mdpprom15');
   const navigate = useNavigate();
 
 
