@@ -6,7 +6,6 @@ import LoginService from '../services/Loginservice';
 const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
 
@@ -22,13 +21,13 @@ const LoginPage = ({ onLogin }) => {
             console.log("tafiditra2");
             navigate('/');
           } else {
-            setError('Invalid username or password');
+
           }
         }, 1000); // 1000 milliseconds = 1 second
       })
       .catch(error => {
         console.error("Login failed:", error);
-        setError('Login failed. Please try again.');
+
       });
   };
 
@@ -74,8 +73,6 @@ const LoginPage = ({ onLogin }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </Form.Group>
-
-                {error && <p className="text-danger">{error}</p>}
 
                 <div style={{ width:"fit-content", marginLeft:"auto", marginRight:"auto",marginTop: "25px" }}>
                   <Button variant="primary" onClick={handleLogin}>

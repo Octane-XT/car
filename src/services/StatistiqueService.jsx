@@ -11,6 +11,10 @@ const StatistiqueService = {
                     'Authorization': `Bearer ${token}`
                 }
             });
+            if (response && response.status === 401) {
+                console.log("Token expired. Removing from local storage.");
+                localStorage.removeItem("token");
+            }
             if (!response.ok) {
                 throw new Error(`Failed to fetch data. Status: ${response.status}`);
             }
@@ -33,6 +37,10 @@ const StatistiqueService = {
                     'Authorization': `Bearer ${token}`
                 }
             });
+            if (response && response.status === 401) {
+                console.log("Token expired. Removing from local storage.");
+                localStorage.removeItem("token");
+            }
             if (!response.ok) {
                 throw new Error(`Failed to fetch data. Status: ${response.status}`);
             }
@@ -56,7 +64,10 @@ const StatistiqueService = {
                 },
                 body: JSON.stringify(newData),
             });
-
+            if (response && response.status === 401) {
+                console.log("Token expired. Removing from local storage.");
+                localStorage.removeItem("token");
+            }
             if (!response.ok) {
                 throw new Error(`Failed to add data. Status: ${response.status}`);
             }
@@ -80,7 +91,10 @@ const StatistiqueService = {
                 },
                 body: JSON.stringify(updatedData),
             });
-
+            if (response && response.status === 401) {
+                console.log("Token expired. Removing from local storage.");
+                localStorage.removeItem("token");
+            }
             if (!response.ok) {
                 throw new Error(`Failed to update data. Status: ${response.status}`);
             }
@@ -103,7 +117,10 @@ const StatistiqueService = {
                     'Authorization': `Bearer ${token}`
                 },
             });
-
+            if (response && response.status === 401) {
+                console.log("Token expired. Removing from local storage.");
+                localStorage.removeItem("token");
+            }
             if (!response.ok) {
                 throw new Error(`Failed to delete data. Status: ${response.status}`);
             }

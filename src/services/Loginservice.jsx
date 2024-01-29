@@ -45,6 +45,7 @@ const LoginService = {
             throw error;
         }
     },
+    
 };
 
 export default LoginService;
