@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import {Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import LoginService from '../services/Loginservice';
 
@@ -8,7 +8,7 @@ const LoginPage = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  
+
 
   const handleLogin = () => {
     console.log("tafiditra1");
@@ -24,7 +24,7 @@ const LoginPage = ({ onLogin }) => {
           } else {
             setError('Invalid username or password');
           }
-        }, 2000); // 1000 milliseconds = 1 second
+        }, 1000); // 1000 milliseconds = 1 second
       })
       .catch(error => {
         console.error("Login failed:", error);
@@ -32,42 +32,63 @@ const LoginPage = ({ onLogin }) => {
       });
   };
 
+  const cardStyles = {
+    background: '#fbfbfb',
+    boxShadow: '1px 2px 10px rgba(0, 0, 0, 0.5)',
+    height: '410px',
+    margin: '6rem auto 8.1rem auto',
+    padding: '15px',
+    width: '450px',
+  };
 
   return (
-    <Container>
-      <Row className="justify-content-center mt-5">
-        <Col md={6}>
-          <h2 className="text-center">Login</h2>
-          <Form>
-            <Form.Group controlId="formUsername">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="admin"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Group>
+    <div className="row w=100 mx-0 aut-page">
+      <div >
+        <div className="card mt-5" style={cardStyles}>
+          <div className="row">
+            <div className="auth-form-wrapper px-4 py-5">
+              <div className="noble-ui-logo d-block mb-4">
+                <h1>ADMIN<span>Panel</span></h1>
+              </div>
+              <Form>
+                <Form.Group controlId="formUsername">
+                  <label htmlFor="userEmail" className="form-label">
+                    Email
+                  </label>
+                  <Form.Control
+                    type="email"
+                    placeholder="example@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Form.Group>
 
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="admin"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Group>
+                <Form.Group controlId="formPassword">
+                  <label htmlFor="userPassword" className="form-label mt-3">
+                    Password
+                  </label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Group>
 
-            {error && <p className="text-danger">{error}</p>}
+                {error && <p className="text-danger">{error}</p>}
 
-            <Button variant="primary" block onClick={handleLogin}>
-              Login
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+                <div style={{ width:"fit-content", marginLeft:"auto", marginRight:"auto",marginTop: "25px" }}>
+                  <Button variant="primary" onClick={handleLogin}>
+                    Se connecter
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   );
 };
 

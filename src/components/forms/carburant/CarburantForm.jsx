@@ -38,6 +38,7 @@ const CarburantForm = (props) => {
         etat:1,
       };
       handleUpdateData(formData);
+      window.location.reload();
       console.log('Update API call:', JSON.stringify(formData));
     } else {
       // Create operation
@@ -45,6 +46,7 @@ const CarburantForm = (props) => {
         nomcarburant: nomcarburant,
       };
       handleCreateData(formData);
+      window.location.reload();
       console.log('Create API call:', JSON.stringify(formData));
     }
     if (props.onModalClose) {
