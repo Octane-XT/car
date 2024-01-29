@@ -2,10 +2,12 @@
 const AnnonceService = {
     getData: async () => {
         try {
+            const token = localStorage.getItem('token');
             const response = await fetch('https://carselling-production-25cb.up.railway.app/api/annoncecontroller/annonces', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
                 }
             });
             if (response && response.status === 401) {
@@ -26,11 +28,12 @@ const AnnonceService = {
 
     postData: async (newData) => {
         try {
+            const token = localStorage.getItem('token');
             const response = await fetch('https://carselling-production-25cb.up.railway.app/api/annoncecontroller/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(newData),
             });
@@ -52,11 +55,12 @@ const AnnonceService = {
 
     updateData: async (updatedData) => {
         try {
+            const token = localStorage.getItem('token');
             const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/annoncecontroller/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(updatedData),
             });
@@ -78,11 +82,12 @@ const AnnonceService = {
 
     validateData: async (id) => {
         try {
+            const token = localStorage.getItem('token');
             const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/annoncecontroller/updateEtat/id=${id}/etat=1`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`,
                 },
             });
             if (response && response.status === 401) {
@@ -103,11 +108,12 @@ const AnnonceService = {
 
     deleteData: async (id) => {
         try {
+            const token = localStorage.getItem('token');
             const response = await fetch(`https://carselling-production-25cb.up.railway.app/api/annoncecontroller/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers as needed
+                    'Authorization': `Bearer ${token}`,
                 },
             });
             if (response && response.status === 401) {
